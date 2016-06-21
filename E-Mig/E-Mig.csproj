@@ -1,0 +1,958 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{E21EF698-0196-4DAF-B315-863A1ED3E348}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>E_Mig</RootNamespace>
+    <AssemblyName>E-Mig</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>E-Mig_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="AO.pfx" />
+    <None Include="Key1.pfx" />
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataConnection.cs" />
+    <Compile Include="JSONUtils.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vonat.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VonatQuery.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\BaseIcon.png" />
+    <Content Include="Images\BaseIcon_0.png" />
+    <Content Include="Images\BaseIcon_120.png" />
+    <Content Include="Images\BaseIcon_150.png" />
+    <Content Include="Images\BaseIcon_180.png" />
+    <Content Include="Images\BaseIcon_210.png" />
+    <Content Include="Images\BaseIcon_240.png" />
+    <Content Include="Images\BaseIcon_270.png" />
+    <Content Include="Images\BaseIcon_30.png" />
+    <Content Include="Images\BaseIcon_300.png" />
+    <Content Include="Images\BaseIcon_330.png" />
+    <Content Include="Images\BaseIcon_60.png" />
+    <Content Include="Images\BaseIcon_90.png" />
+    <Content Include="Images\BG_M.png" />
+    <Content Include="Images\BG_M_0.png" />
+    <Content Include="Images\BG_M_10.png" />
+    <Content Include="Images\BG_M_100.png" />
+    <Content Include="Images\BG_M_110.png" />
+    <Content Include="Images\BG_M_120.png" />
+    <Content Include="Images\BG_M_130.png" />
+    <Content Include="Images\BG_M_140.png" />
+    <Content Include="Images\BG_M_150.png" />
+    <Content Include="Images\BG_M_160.png" />
+    <Content Include="Images\BG_M_170.png" />
+    <Content Include="Images\BG_M_180.png" />
+    <Content Include="Images\BG_M_190.png" />
+    <Content Include="Images\BG_M_20.png" />
+    <Content Include="Images\BG_M_200.png" />
+    <Content Include="Images\BG_M_210.png" />
+    <Content Include="Images\BG_M_220.png" />
+    <Content Include="Images\BG_M_230.png" />
+    <Content Include="Images\BG_M_240.png" />
+    <Content Include="Images\BG_M_250.png" />
+    <Content Include="Images\BG_M_260.png" />
+    <Content Include="Images\BG_M_270.png" />
+    <Content Include="Images\BG_M_280.png" />
+    <Content Include="Images\BG_M_290.png" />
+    <Content Include="Images\BG_M_30.png" />
+    <Content Include="Images\BG_M_300.png" />
+    <Content Include="Images\BG_M_310.png" />
+    <Content Include="Images\BG_M_320.png" />
+    <Content Include="Images\BG_M_330.png" />
+    <Content Include="Images\BG_M_340.png" />
+    <Content Include="Images\BG_M_350.png" />
+    <Content Include="Images\BG_M_40.png" />
+    <Content Include="Images\BG_M_50.png" />
+    <Content Include="Images\BG_M_60.png" />
+    <Content Include="Images\BG_M_70.png" />
+    <Content Include="Images\BG_M_80.png" />
+    <Content Include="Images\BG_M_90.png" />
+    <Content Include="Images\BG_S.png" />
+    <Content Include="Images\BG_S_0.png" />
+    <Content Include="Images\BG_S_10.png" />
+    <Content Include="Images\BG_S_100.png" />
+    <Content Include="Images\BG_S_110.png" />
+    <Content Include="Images\BG_S_120.png" />
+    <Content Include="Images\BG_S_130.png" />
+    <Content Include="Images\BG_S_140.png" />
+    <Content Include="Images\BG_S_150.png" />
+    <Content Include="Images\BG_S_160.png" />
+    <Content Include="Images\BG_S_170.png" />
+    <Content Include="Images\BG_S_180.png" />
+    <Content Include="Images\BG_S_190.png" />
+    <Content Include="Images\BG_S_20.png" />
+    <Content Include="Images\BG_S_200.png" />
+    <Content Include="Images\BG_S_210.png" />
+    <Content Include="Images\BG_S_220.png" />
+    <Content Include="Images\BG_S_230.png" />
+    <Content Include="Images\BG_S_240.png" />
+    <Content Include="Images\BG_S_250.png" />
+    <Content Include="Images\BG_S_260.png" />
+    <Content Include="Images\BG_S_270.png" />
+    <Content Include="Images\BG_S_280.png" />
+    <Content Include="Images\BG_S_290.png" />
+    <Content Include="Images\BG_S_30.png" />
+    <Content Include="Images\BG_S_300.png" />
+    <Content Include="Images\BG_S_310.png" />
+    <Content Include="Images\BG_S_320.png" />
+    <Content Include="Images\BG_S_330.png" />
+    <Content Include="Images\BG_S_340.png" />
+    <Content Include="Images\BG_S_350.png" />
+    <Content Include="Images\BG_S_40.png" />
+    <Content Include="Images\BG_S_50.png" />
+    <Content Include="Images\BG_S_60.png" />
+    <Content Include="Images\BG_S_70.png" />
+    <Content Include="Images\BG_S_80.png" />
+    <Content Include="Images\BG_S_90.png" />
+    <Content Include="Images\BG_T.png" />
+    <Content Include="Images\BG_T_0.png" />
+    <Content Include="Images\BG_T_10.png" />
+    <Content Include="Images\BG_T_100.png" />
+    <Content Include="Images\BG_T_110.png" />
+    <Content Include="Images\BG_T_120.png" />
+    <Content Include="Images\BG_T_130.png" />
+    <Content Include="Images\BG_T_140.png" />
+    <Content Include="Images\BG_T_150.png" />
+    <Content Include="Images\BG_T_160.png" />
+    <Content Include="Images\BG_T_170.png" />
+    <Content Include="Images\BG_T_180.png" />
+    <Content Include="Images\BG_T_190.png" />
+    <Content Include="Images\BG_T_20.png" />
+    <Content Include="Images\BG_T_200.png" />
+    <Content Include="Images\BG_T_210.png" />
+    <Content Include="Images\BG_T_220.png" />
+    <Content Include="Images\BG_T_230.png" />
+    <Content Include="Images\BG_T_240.png" />
+    <Content Include="Images\BG_T_250.png" />
+    <Content Include="Images\BG_T_260.png" />
+    <Content Include="Images\BG_T_270.png" />
+    <Content Include="Images\BG_T_280.png" />
+    <Content Include="Images\BG_T_290.png" />
+    <Content Include="Images\BG_T_30.png" />
+    <Content Include="Images\BG_T_300.png" />
+    <Content Include="Images\BG_T_310.png" />
+    <Content Include="Images\BG_T_320.png" />
+    <Content Include="Images\BG_T_330.png" />
+    <Content Include="Images\BG_T_340.png" />
+    <Content Include="Images\BG_T_350.png" />
+    <Content Include="Images\BG_T_40.png" />
+    <Content Include="Images\BG_T_50.png" />
+    <Content Include="Images\BG_T_60.png" />
+    <Content Include="Images\BG_T_70.png" />
+    <Content Include="Images\BG_T_80.png" />
+    <Content Include="Images\BG_T_90.png" />
+    <Content Include="Images\Blue_M.png" />
+    <Content Include="Images\Blue_M_0.png" />
+    <Content Include="Images\Blue_M_10.png" />
+    <Content Include="Images\Blue_M_100.png" />
+    <Content Include="Images\Blue_M_110.png" />
+    <Content Include="Images\Blue_M_120.png" />
+    <Content Include="Images\Blue_M_130.png" />
+    <Content Include="Images\Blue_M_140.png" />
+    <Content Include="Images\Blue_M_150.png" />
+    <Content Include="Images\Blue_M_160.png" />
+    <Content Include="Images\Blue_M_170.png" />
+    <Content Include="Images\Blue_M_180.png" />
+    <Content Include="Images\Blue_M_190.png" />
+    <Content Include="Images\Blue_M_20.png" />
+    <Content Include="Images\Blue_M_200.png" />
+    <Content Include="Images\Blue_M_210.png" />
+    <Content Include="Images\Blue_M_220.png" />
+    <Content Include="Images\Blue_M_230.png" />
+    <Content Include="Images\Blue_M_240.png" />
+    <Content Include="Images\Blue_M_250.png" />
+    <Content Include="Images\Blue_M_260.png" />
+    <Content Include="Images\Blue_M_270.png" />
+    <Content Include="Images\Blue_M_280.png" />
+    <Content Include="Images\Blue_M_290.png" />
+    <Content Include="Images\Blue_M_30.png" />
+    <Content Include="Images\Blue_M_300.png" />
+    <Content Include="Images\Blue_M_310.png" />
+    <Content Include="Images\Blue_M_320.png" />
+    <Content Include="Images\Blue_M_330.png" />
+    <Content Include="Images\Blue_M_340.png" />
+    <Content Include="Images\Blue_M_350.png" />
+    <Content Include="Images\Blue_M_40.png" />
+    <Content Include="Images\Blue_M_50.png" />
+    <Content Include="Images\Blue_M_60.png" />
+    <Content Include="Images\Blue_M_70.png" />
+    <Content Include="Images\Blue_M_80.png" />
+    <Content Include="Images\Blue_M_90.png" />
+    <Content Include="Images\Blue_S.png" />
+    <Content Include="Images\Blue_S_0.png" />
+    <Content Include="Images\Blue_S_10.png" />
+    <Content Include="Images\Blue_S_100.png" />
+    <Content Include="Images\Blue_S_110.png" />
+    <Content Include="Images\Blue_S_120.png" />
+    <Content Include="Images\Blue_S_130.png" />
+    <Content Include="Images\Blue_S_140.png" />
+    <Content Include="Images\Blue_S_150.png" />
+    <Content Include="Images\Blue_S_160.png" />
+    <Content Include="Images\Blue_S_170.png" />
+    <Content Include="Images\Blue_S_180.png" />
+    <Content Include="Images\Blue_S_190.png" />
+    <Content Include="Images\Blue_S_20.png" />
+    <Content Include="Images\Blue_S_200.png" />
+    <Content Include="Images\Blue_S_210.png" />
+    <Content Include="Images\Blue_S_220.png" />
+    <Content Include="Images\Blue_S_230.png" />
+    <Content Include="Images\Blue_S_240.png" />
+    <Content Include="Images\Blue_S_250.png" />
+    <Content Include="Images\Blue_S_260.png" />
+    <Content Include="Images\Blue_S_270.png" />
+    <Content Include="Images\Blue_S_280.png" />
+    <Content Include="Images\Blue_S_290.png" />
+    <Content Include="Images\Blue_S_30.png" />
+    <Content Include="Images\Blue_S_300.png" />
+    <Content Include="Images\Blue_S_310.png" />
+    <Content Include="Images\Blue_S_320.png" />
+    <Content Include="Images\Blue_S_330.png" />
+    <Content Include="Images\Blue_S_340.png" />
+    <Content Include="Images\Blue_S_350.png" />
+    <Content Include="Images\Blue_S_40.png" />
+    <Content Include="Images\Blue_S_50.png" />
+    <Content Include="Images\Blue_S_60.png" />
+    <Content Include="Images\Blue_S_70.png" />
+    <Content Include="Images\Blue_S_80.png" />
+    <Content Include="Images\Blue_S_90.png" />
+    <Content Include="Images\Blue_T.png" />
+    <Content Include="Images\Blue_T_0.png" />
+    <Content Include="Images\Blue_T_10.png" />
+    <Content Include="Images\Blue_T_100.png" />
+    <Content Include="Images\Blue_T_110.png" />
+    <Content Include="Images\Blue_T_120.png" />
+    <Content Include="Images\Blue_T_130.png" />
+    <Content Include="Images\Blue_T_140.png" />
+    <Content Include="Images\Blue_T_150.png" />
+    <Content Include="Images\Blue_T_160.png" />
+    <Content Include="Images\Blue_T_170.png" />
+    <Content Include="Images\Blue_T_180.png" />
+    <Content Include="Images\Blue_T_190.png" />
+    <Content Include="Images\Blue_T_20.png" />
+    <Content Include="Images\Blue_T_200.png" />
+    <Content Include="Images\Blue_T_210.png" />
+    <Content Include="Images\Blue_T_220.png" />
+    <Content Include="Images\Blue_T_230.png" />
+    <Content Include="Images\Blue_T_240.png" />
+    <Content Include="Images\Blue_T_250.png" />
+    <Content Include="Images\Blue_T_260.png" />
+    <Content Include="Images\Blue_T_270.png" />
+    <Content Include="Images\Blue_T_280.png" />
+    <Content Include="Images\Blue_T_290.png" />
+    <Content Include="Images\Blue_T_30.png" />
+    <Content Include="Images\Blue_T_300.png" />
+    <Content Include="Images\Blue_T_310.png" />
+    <Content Include="Images\Blue_T_320.png" />
+    <Content Include="Images\Blue_T_330.png" />
+    <Content Include="Images\Blue_T_340.png" />
+    <Content Include="Images\Blue_T_350.png" />
+    <Content Include="Images\Blue_T_40.png" />
+    <Content Include="Images\Blue_T_50.png" />
+    <Content Include="Images\Blue_T_60.png" />
+    <Content Include="Images\Blue_T_70.png" />
+    <Content Include="Images\Blue_T_80.png" />
+    <Content Include="Images\Blue_T_90.png" />
+    <Content Include="Images\Green_M.png" />
+    <Content Include="Images\Green_M_0.png" />
+    <Content Include="Images\Green_M_10.png" />
+    <Content Include="Images\Green_M_100.png" />
+    <Content Include="Images\Green_M_110.png" />
+    <Content Include="Images\Green_M_120.png" />
+    <Content Include="Images\Green_M_130.png" />
+    <Content Include="Images\Green_M_140.png" />
+    <Content Include="Images\Green_M_150.png" />
+    <Content Include="Images\Green_M_160.png" />
+    <Content Include="Images\Green_M_170.png" />
+    <Content Include="Images\Green_M_180.png" />
+    <Content Include="Images\Green_M_190.png" />
+    <Content Include="Images\Green_M_20.png" />
+    <Content Include="Images\Green_M_200.png" />
+    <Content Include="Images\Green_M_210.png" />
+    <Content Include="Images\Green_M_220.png" />
+    <Content Include="Images\Green_M_230.png" />
+    <Content Include="Images\Green_M_240.png" />
+    <Content Include="Images\Green_M_250.png" />
+    <Content Include="Images\Green_M_260.png" />
+    <Content Include="Images\Green_M_270.png" />
+    <Content Include="Images\Green_M_280.png" />
+    <Content Include="Images\Green_M_290.png" />
+    <Content Include="Images\Green_M_30.png" />
+    <Content Include="Images\Green_M_300.png" />
+    <Content Include="Images\Green_M_310.png" />
+    <Content Include="Images\Green_M_320.png" />
+    <Content Include="Images\Green_M_330.png" />
+    <Content Include="Images\Green_M_340.png" />
+    <Content Include="Images\Green_M_350.png" />
+    <Content Include="Images\Green_M_40.png" />
+    <Content Include="Images\Green_M_50.png" />
+    <Content Include="Images\Green_M_60.png" />
+    <Content Include="Images\Green_M_70.png" />
+    <Content Include="Images\Green_M_80.png" />
+    <Content Include="Images\Green_M_90.png" />
+    <Content Include="Images\Green_S.png" />
+    <Content Include="Images\Green_S_0.png" />
+    <Content Include="Images\Green_S_10.png" />
+    <Content Include="Images\Green_S_100.png" />
+    <Content Include="Images\Green_S_110.png" />
+    <Content Include="Images\Green_S_120.png" />
+    <Content Include="Images\Green_S_130.png" />
+    <Content Include="Images\Green_S_140.png" />
+    <Content Include="Images\Green_S_150.png" />
+    <Content Include="Images\Green_S_160.png" />
+    <Content Include="Images\Green_S_170.png" />
+    <Content Include="Images\Green_S_180.png" />
+    <Content Include="Images\Green_S_190.png" />
+    <Content Include="Images\Green_S_20.png" />
+    <Content Include="Images\Green_S_200.png" />
+    <Content Include="Images\Green_S_210.png" />
+    <Content Include="Images\Green_S_220.png" />
+    <Content Include="Images\Green_S_230.png" />
+    <Content Include="Images\Green_S_240.png" />
+    <Content Include="Images\Green_S_250.png" />
+    <Content Include="Images\Green_S_260.png" />
+    <Content Include="Images\Green_S_270.png" />
+    <Content Include="Images\Green_S_280.png" />
+    <Content Include="Images\Green_S_290.png" />
+    <Content Include="Images\Green_S_30.png" />
+    <Content Include="Images\Green_S_300.png" />
+    <Content Include="Images\Green_S_310.png" />
+    <Content Include="Images\Green_S_320.png" />
+    <Content Include="Images\Green_S_330.png" />
+    <Content Include="Images\Green_S_340.png" />
+    <Content Include="Images\Green_S_350.png" />
+    <Content Include="Images\Green_S_40.png" />
+    <Content Include="Images\Green_S_50.png" />
+    <Content Include="Images\Green_S_60.png" />
+    <Content Include="Images\Green_S_70.png" />
+    <Content Include="Images\Green_S_80.png" />
+    <Content Include="Images\Green_S_90.png" />
+    <Content Include="Images\Green_T.png" />
+    <Content Include="Images\Green_T_0.png" />
+    <Content Include="Images\Green_T_10.png" />
+    <Content Include="Images\Green_T_100.png" />
+    <Content Include="Images\Green_T_110.png" />
+    <Content Include="Images\Green_T_120.png" />
+    <Content Include="Images\Green_T_130.png" />
+    <Content Include="Images\Green_T_140.png" />
+    <Content Include="Images\Green_T_150.png" />
+    <Content Include="Images\Green_T_160.png" />
+    <Content Include="Images\Green_T_170.png" />
+    <Content Include="Images\Green_T_180.png" />
+    <Content Include="Images\Green_T_190.png" />
+    <Content Include="Images\Green_T_20.png" />
+    <Content Include="Images\Green_T_200.png" />
+    <Content Include="Images\Green_T_210.png" />
+    <Content Include="Images\Green_T_220.png" />
+    <Content Include="Images\Green_T_230.png" />
+    <Content Include="Images\Green_T_240.png" />
+    <Content Include="Images\Green_T_250.png" />
+    <Content Include="Images\Green_T_260.png" />
+    <Content Include="Images\Green_T_270.png" />
+    <Content Include="Images\Green_T_280.png" />
+    <Content Include="Images\Green_T_290.png" />
+    <Content Include="Images\Green_T_30.png" />
+    <Content Include="Images\Green_T_300.png" />
+    <Content Include="Images\Green_T_310.png" />
+    <Content Include="Images\Green_T_320.png" />
+    <Content Include="Images\Green_T_330.png" />
+    <Content Include="Images\Green_T_340.png" />
+    <Content Include="Images\Green_T_350.png" />
+    <Content Include="Images\Green_T_40.png" />
+    <Content Include="Images\Green_T_50.png" />
+    <Content Include="Images\Green_T_60.png" />
+    <Content Include="Images\Green_T_70.png" />
+    <Content Include="Images\Green_T_80.png" />
+    <Content Include="Images\Green_T_90.png" />
+    <Content Include="Images\Grey_M.png" />
+    <Content Include="Images\Grey_M_0.png" />
+    <Content Include="Images\Grey_M_10.png" />
+    <Content Include="Images\Grey_M_100.png" />
+    <Content Include="Images\Grey_M_110.png" />
+    <Content Include="Images\Grey_M_120.png" />
+    <Content Include="Images\Grey_M_130.png" />
+    <Content Include="Images\Grey_M_140.png" />
+    <Content Include="Images\Grey_M_150.png" />
+    <Content Include="Images\Grey_M_160.png" />
+    <Content Include="Images\Grey_M_170.png" />
+    <Content Include="Images\Grey_M_180.png" />
+    <Content Include="Images\Grey_M_190.png" />
+    <Content Include="Images\Grey_M_20.png" />
+    <Content Include="Images\Grey_M_200.png" />
+    <Content Include="Images\Grey_M_210.png" />
+    <Content Include="Images\Grey_M_220.png" />
+    <Content Include="Images\Grey_M_230.png" />
+    <Content Include="Images\Grey_M_240.png" />
+    <Content Include="Images\Grey_M_250.png" />
+    <Content Include="Images\Grey_M_260.png" />
+    <Content Include="Images\Grey_M_270.png" />
+    <Content Include="Images\Grey_M_280.png" />
+    <Content Include="Images\Grey_M_290.png" />
+    <Content Include="Images\Grey_M_30.png" />
+    <Content Include="Images\Grey_M_300.png" />
+    <Content Include="Images\Grey_M_310.png" />
+    <Content Include="Images\Grey_M_320.png" />
+    <Content Include="Images\Grey_M_330.png" />
+    <Content Include="Images\Grey_M_340.png" />
+    <Content Include="Images\Grey_M_350.png" />
+    <Content Include="Images\Grey_M_40.png" />
+    <Content Include="Images\Grey_M_50.png" />
+    <Content Include="Images\Grey_M_60.png" />
+    <Content Include="Images\Grey_M_70.png" />
+    <Content Include="Images\Grey_M_80.png" />
+    <Content Include="Images\Grey_M_90.png" />
+    <Content Include="Images\Grey_S.png" />
+    <Content Include="Images\Grey_S_0.png" />
+    <Content Include="Images\Grey_S_10.png" />
+    <Content Include="Images\Grey_S_100.png" />
+    <Content Include="Images\Grey_S_110.png" />
+    <Content Include="Images\Grey_S_120.png" />
+    <Content Include="Images\Grey_S_130.png" />
+    <Content Include="Images\Grey_S_140.png" />
+    <Content Include="Images\Grey_S_150.png" />
+    <Content Include="Images\Grey_S_160.png" />
+    <Content Include="Images\Grey_S_170.png" />
+    <Content Include="Images\Grey_S_180.png" />
+    <Content Include="Images\Grey_S_190.png" />
+    <Content Include="Images\Grey_S_20.png" />
+    <Content Include="Images\Grey_S_200.png" />
+    <Content Include="Images\Grey_S_210.png" />
+    <Content Include="Images\Grey_S_220.png" />
+    <Content Include="Images\Grey_S_230.png" />
+    <Content Include="Images\Grey_S_240.png" />
+    <Content Include="Images\Grey_S_250.png" />
+    <Content Include="Images\Grey_S_260.png" />
+    <Content Include="Images\Grey_S_270.png" />
+    <Content Include="Images\Grey_S_280.png" />
+    <Content Include="Images\Grey_S_290.png" />
+    <Content Include="Images\Grey_S_30.png" />
+    <Content Include="Images\Grey_S_300.png" />
+    <Content Include="Images\Grey_S_310.png" />
+    <Content Include="Images\Grey_S_320.png" />
+    <Content Include="Images\Grey_S_330.png" />
+    <Content Include="Images\Grey_S_340.png" />
+    <Content Include="Images\Grey_S_350.png" />
+    <Content Include="Images\Grey_S_40.png" />
+    <Content Include="Images\Grey_S_50.png" />
+    <Content Include="Images\Grey_S_60.png" />
+    <Content Include="Images\Grey_S_70.png" />
+    <Content Include="Images\Grey_S_80.png" />
+    <Content Include="Images\Grey_S_90.png" />
+    <Content Include="Images\Grey_T.png" />
+    <Content Include="Images\Grey_T_0.png" />
+    <Content Include="Images\Grey_T_10.png" />
+    <Content Include="Images\Grey_T_100.png" />
+    <Content Include="Images\Grey_T_110.png" />
+    <Content Include="Images\Grey_T_120.png" />
+    <Content Include="Images\Grey_T_130.png" />
+    <Content Include="Images\Grey_T_140.png" />
+    <Content Include="Images\Grey_T_150.png" />
+    <Content Include="Images\Grey_T_160.png" />
+    <Content Include="Images\Grey_T_170.png" />
+    <Content Include="Images\Grey_T_180.png" />
+    <Content Include="Images\Grey_T_190.png" />
+    <Content Include="Images\Grey_T_20.png" />
+    <Content Include="Images\Grey_T_200.png" />
+    <Content Include="Images\Grey_T_210.png" />
+    <Content Include="Images\Grey_T_220.png" />
+    <Content Include="Images\Grey_T_230.png" />
+    <Content Include="Images\Grey_T_240.png" />
+    <Content Include="Images\Grey_T_250.png" />
+    <Content Include="Images\Grey_T_260.png" />
+    <Content Include="Images\Grey_T_270.png" />
+    <Content Include="Images\Grey_T_280.png" />
+    <Content Include="Images\Grey_T_290.png" />
+    <Content Include="Images\Grey_T_30.png" />
+    <Content Include="Images\Grey_T_300.png" />
+    <Content Include="Images\Grey_T_310.png" />
+    <Content Include="Images\Grey_T_320.png" />
+    <Content Include="Images\Grey_T_330.png" />
+    <Content Include="Images\Grey_T_340.png" />
+    <Content Include="Images\Grey_T_350.png" />
+    <Content Include="Images\Grey_T_40.png" />
+    <Content Include="Images\Grey_T_50.png" />
+    <Content Include="Images\Grey_T_60.png" />
+    <Content Include="Images\Grey_T_70.png" />
+    <Content Include="Images\Grey_T_80.png" />
+    <Content Include="Images\Grey_T_90.png" />
+    <Content Include="Images\Orange_M.png" />
+    <Content Include="Images\Orange_M_0.png" />
+    <Content Include="Images\Orange_M_10.png" />
+    <Content Include="Images\Orange_M_100.png" />
+    <Content Include="Images\Orange_M_110.png" />
+    <Content Include="Images\Orange_M_120.png" />
+    <Content Include="Images\Orange_M_130.png" />
+    <Content Include="Images\Orange_M_140.png" />
+    <Content Include="Images\Orange_M_150.png" />
+    <Content Include="Images\Orange_M_160.png" />
+    <Content Include="Images\Orange_M_170.png" />
+    <Content Include="Images\Orange_M_180.png" />
+    <Content Include="Images\Orange_M_190.png" />
+    <Content Include="Images\Orange_M_20.png" />
+    <Content Include="Images\Orange_M_200.png" />
+    <Content Include="Images\Orange_M_210.png" />
+    <Content Include="Images\Orange_M_220.png" />
+    <Content Include="Images\Orange_M_230.png" />
+    <Content Include="Images\Orange_M_240.png" />
+    <Content Include="Images\Orange_M_250.png" />
+    <Content Include="Images\Orange_M_260.png" />
+    <Content Include="Images\Orange_M_270.png" />
+    <Content Include="Images\Orange_M_280.png" />
+    <Content Include="Images\Orange_M_290.png" />
+    <Content Include="Images\Orange_M_30.png" />
+    <Content Include="Images\Orange_M_300.png" />
+    <Content Include="Images\Orange_M_310.png" />
+    <Content Include="Images\Orange_M_320.png" />
+    <Content Include="Images\Orange_M_330.png" />
+    <Content Include="Images\Orange_M_340.png" />
+    <Content Include="Images\Orange_M_350.png" />
+    <Content Include="Images\Orange_M_40.png" />
+    <Content Include="Images\Orange_M_50.png" />
+    <Content Include="Images\Orange_M_60.png" />
+    <Content Include="Images\Orange_M_70.png" />
+    <Content Include="Images\Orange_M_80.png" />
+    <Content Include="Images\Orange_M_90.png" />
+    <Content Include="Images\Orange_S.png" />
+    <Content Include="Images\Orange_S_0.png" />
+    <Content Include="Images\Orange_S_10.png" />
+    <Content Include="Images\Orange_S_100.png" />
+    <Content Include="Images\Orange_S_110.png" />
+    <Content Include="Images\Orange_S_120.png" />
+    <Content Include="Images\Orange_S_130.png" />
+    <Content Include="Images\Orange_S_140.png" />
+    <Content Include="Images\Orange_S_150.png" />
+    <Content Include="Images\Orange_S_160.png" />
+    <Content Include="Images\Orange_S_170.png" />
+    <Content Include="Images\Orange_S_180.png" />
+    <Content Include="Images\Orange_S_190.png" />
+    <Content Include="Images\Orange_S_20.png" />
+    <Content Include="Images\Orange_S_200.png" />
+    <Content Include="Images\Orange_S_210.png" />
+    <Content Include="Images\Orange_S_220.png" />
+    <Content Include="Images\Orange_S_230.png" />
+    <Content Include="Images\Orange_S_240.png" />
+    <Content Include="Images\Orange_S_250.png" />
+    <Content Include="Images\Orange_S_260.png" />
+    <Content Include="Images\Orange_S_270.png" />
+    <Content Include="Images\Orange_S_280.png" />
+    <Content Include="Images\Orange_S_290.png" />
+    <Content Include="Images\Orange_S_30.png" />
+    <Content Include="Images\Orange_S_300.png" />
+    <Content Include="Images\Orange_S_310.png" />
+    <Content Include="Images\Orange_S_320.png" />
+    <Content Include="Images\Orange_S_330.png" />
+    <Content Include="Images\Orange_S_340.png" />
+    <Content Include="Images\Orange_S_350.png" />
+    <Content Include="Images\Orange_S_40.png" />
+    <Content Include="Images\Orange_S_50.png" />
+    <Content Include="Images\Orange_S_60.png" />
+    <Content Include="Images\Orange_S_70.png" />
+    <Content Include="Images\Orange_S_80.png" />
+    <Content Include="Images\Orange_S_90.png" />
+    <Content Include="Images\Orange_T.png" />
+    <Content Include="Images\Orange_T_0.png" />
+    <Content Include="Images\Orange_T_10.png" />
+    <Content Include="Images\Orange_T_100.png" />
+    <Content Include="Images\Orange_T_110.png" />
+    <Content Include="Images\Orange_T_120.png" />
+    <Content Include="Images\Orange_T_130.png" />
+    <Content Include="Images\Orange_T_140.png" />
+    <Content Include="Images\Orange_T_150.png" />
+    <Content Include="Images\Orange_T_160.png" />
+    <Content Include="Images\Orange_T_170.png" />
+    <Content Include="Images\Orange_T_180.png" />
+    <Content Include="Images\Orange_T_190.png" />
+    <Content Include="Images\Orange_T_20.png" />
+    <Content Include="Images\Orange_T_200.png" />
+    <Content Include="Images\Orange_T_210.png" />
+    <Content Include="Images\Orange_T_220.png" />
+    <Content Include="Images\Orange_T_230.png" />
+    <Content Include="Images\Orange_T_240.png" />
+    <Content Include="Images\Orange_T_250.png" />
+    <Content Include="Images\Orange_T_260.png" />
+    <Content Include="Images\Orange_T_270.png" />
+    <Content Include="Images\Orange_T_280.png" />
+    <Content Include="Images\Orange_T_290.png" />
+    <Content Include="Images\Orange_T_30.png" />
+    <Content Include="Images\Orange_T_300.png" />
+    <Content Include="Images\Orange_T_310.png" />
+    <Content Include="Images\Orange_T_320.png" />
+    <Content Include="Images\Orange_T_330.png" />
+    <Content Include="Images\Orange_T_340.png" />
+    <Content Include="Images\Orange_T_350.png" />
+    <Content Include="Images\Orange_T_40.png" />
+    <Content Include="Images\Orange_T_50.png" />
+    <Content Include="Images\Orange_T_60.png" />
+    <Content Include="Images\Orange_T_70.png" />
+    <Content Include="Images\Orange_T_80.png" />
+    <Content Include="Images\Orange_T_90.png" />
+    <Content Include="Images\Red_M.png" />
+    <Content Include="Images\Red_M_0.png" />
+    <Content Include="Images\Red_M_10.png" />
+    <Content Include="Images\Red_M_100.png" />
+    <Content Include="Images\Red_M_110.png" />
+    <Content Include="Images\Red_M_120.png" />
+    <Content Include="Images\Red_M_130.png" />
+    <Content Include="Images\Red_M_140.png" />
+    <Content Include="Images\Red_M_150.png" />
+    <Content Include="Images\Red_M_160.png" />
+    <Content Include="Images\Red_M_170.png" />
+    <Content Include="Images\Red_M_180.png" />
+    <Content Include="Images\Red_M_190.png" />
+    <Content Include="Images\Red_M_20.png" />
+    <Content Include="Images\Red_M_200.png" />
+    <Content Include="Images\Red_M_210.png" />
+    <Content Include="Images\Red_M_220.png" />
+    <Content Include="Images\Red_M_230.png" />
+    <Content Include="Images\Red_M_240.png" />
+    <Content Include="Images\Red_M_250.png" />
+    <Content Include="Images\Red_M_260.png" />
+    <Content Include="Images\Red_M_270.png" />
+    <Content Include="Images\Red_M_280.png" />
+    <Content Include="Images\Red_M_290.png" />
+    <Content Include="Images\Red_M_30.png" />
+    <Content Include="Images\Red_M_300.png" />
+    <Content Include="Images\Red_M_310.png" />
+    <Content Include="Images\Red_M_320.png" />
+    <Content Include="Images\Red_M_330.png" />
+    <Content Include="Images\Red_M_340.png" />
+    <Content Include="Images\Red_M_350.png" />
+    <Content Include="Images\Red_M_40.png" />
+    <Content Include="Images\Red_M_50.png" />
+    <Content Include="Images\Red_M_60.png" />
+    <Content Include="Images\Red_M_70.png" />
+    <Content Include="Images\Red_M_80.png" />
+    <Content Include="Images\Red_M_90.png" />
+    <Content Include="Images\Red_S.png" />
+    <Content Include="Images\Red_S_0.png" />
+    <Content Include="Images\Red_S_10.png" />
+    <Content Include="Images\Red_S_100.png" />
+    <Content Include="Images\Red_S_110.png" />
+    <Content Include="Images\Red_S_120.png" />
+    <Content Include="Images\Red_S_130.png" />
+    <Content Include="Images\Red_S_140.png" />
+    <Content Include="Images\Red_S_150.png" />
+    <Content Include="Images\Red_S_160.png" />
+    <Content Include="Images\Red_S_170.png" />
+    <Content Include="Images\Red_S_180.png" />
+    <Content Include="Images\Red_S_190.png" />
+    <Content Include="Images\Red_S_20.png" />
+    <Content Include="Images\Red_S_200.png" />
+    <Content Include="Images\Red_S_210.png" />
+    <Content Include="Images\Red_S_220.png" />
+    <Content Include="Images\Red_S_230.png" />
+    <Content Include="Images\Red_S_240.png" />
+    <Content Include="Images\Red_S_250.png" />
+    <Content Include="Images\Red_S_260.png" />
+    <Content Include="Images\Red_S_270.png" />
+    <Content Include="Images\Red_S_280.png" />
+    <Content Include="Images\Red_S_290.png" />
+    <Content Include="Images\Red_S_30.png" />
+    <Content Include="Images\Red_S_300.png" />
+    <Content Include="Images\Red_S_310.png" />
+    <Content Include="Images\Red_S_320.png" />
+    <Content Include="Images\Red_S_330.png" />
+    <Content Include="Images\Red_S_340.png" />
+    <Content Include="Images\Red_S_350.png" />
+    <Content Include="Images\Red_S_40.png" />
+    <Content Include="Images\Red_S_50.png" />
+    <Content Include="Images\Red_S_60.png" />
+    <Content Include="Images\Red_S_70.png" />
+    <Content Include="Images\Red_S_80.png" />
+    <Content Include="Images\Red_S_90.png" />
+    <Content Include="Images\Red_T.png" />
+    <Content Include="Images\Red_T_0.png" />
+    <Content Include="Images\Red_T_10.png" />
+    <Content Include="Images\Red_T_100.png" />
+    <Content Include="Images\Red_T_110.png" />
+    <Content Include="Images\Red_T_120.png" />
+    <Content Include="Images\Red_T_130.png" />
+    <Content Include="Images\Red_T_140.png" />
+    <Content Include="Images\Red_T_150.png" />
+    <Content Include="Images\Red_T_160.png" />
+    <Content Include="Images\Red_T_170.png" />
+    <Content Include="Images\Red_T_180.png" />
+    <Content Include="Images\Red_T_190.png" />
+    <Content Include="Images\Red_T_20.png" />
+    <Content Include="Images\Red_T_200.png" />
+    <Content Include="Images\Red_T_210.png" />
+    <Content Include="Images\Red_T_220.png" />
+    <Content Include="Images\Red_T_230.png" />
+    <Content Include="Images\Red_T_240.png" />
+    <Content Include="Images\Red_T_250.png" />
+    <Content Include="Images\Red_T_260.png" />
+    <Content Include="Images\Red_T_270.png" />
+    <Content Include="Images\Red_T_280.png" />
+    <Content Include="Images\Red_T_290.png" />
+    <Content Include="Images\Red_T_30.png" />
+    <Content Include="Images\Red_T_300.png" />
+    <Content Include="Images\Red_T_310.png" />
+    <Content Include="Images\Red_T_320.png" />
+    <Content Include="Images\Red_T_330.png" />
+    <Content Include="Images\Red_T_340.png" />
+    <Content Include="Images\Red_T_350.png" />
+    <Content Include="Images\Red_T_40.png" />
+    <Content Include="Images\Red_T_50.png" />
+    <Content Include="Images\Red_T_60.png" />
+    <Content Include="Images\Red_T_70.png" />
+    <Content Include="Images\Red_T_80.png" />
+    <Content Include="Images\Red_T_90.png" />
+    <Content Include="Images\Yellow_M.png" />
+    <Content Include="Images\Yellow_M_0.png" />
+    <Content Include="Images\Yellow_M_10.png" />
+    <Content Include="Images\Yellow_M_100.png" />
+    <Content Include="Images\Yellow_M_110.png" />
+    <Content Include="Images\Yellow_M_120.png" />
+    <Content Include="Images\Yellow_M_130.png" />
+    <Content Include="Images\Yellow_M_140.png" />
+    <Content Include="Images\Yellow_M_150.png" />
+    <Content Include="Images\Yellow_M_160.png" />
+    <Content Include="Images\Yellow_M_170.png" />
+    <Content Include="Images\Yellow_M_180.png" />
+    <Content Include="Images\Yellow_M_190.png" />
+    <Content Include="Images\Yellow_M_20.png" />
+    <Content Include="Images\Yellow_M_200.png" />
+    <Content Include="Images\Yellow_M_210.png" />
+    <Content Include="Images\Yellow_M_220.png" />
+    <Content Include="Images\Yellow_M_230.png" />
+    <Content Include="Images\Yellow_M_240.png" />
+    <Content Include="Images\Yellow_M_250.png" />
+    <Content Include="Images\Yellow_M_260.png" />
+    <Content Include="Images\Yellow_M_270.png" />
+    <Content Include="Images\Yellow_M_280.png" />
+    <Content Include="Images\Yellow_M_290.png" />
+    <Content Include="Images\Yellow_M_30.png" />
+    <Content Include="Images\Yellow_M_300.png" />
+    <Content Include="Images\Yellow_M_310.png" />
+    <Content Include="Images\Yellow_M_320.png" />
+    <Content Include="Images\Yellow_M_330.png" />
+    <Content Include="Images\Yellow_M_340.png" />
+    <Content Include="Images\Yellow_M_350.png" />
+    <Content Include="Images\Yellow_M_40.png" />
+    <Content Include="Images\Yellow_M_50.png" />
+    <Content Include="Images\Yellow_M_60.png" />
+    <Content Include="Images\Yellow_M_70.png" />
+    <Content Include="Images\Yellow_M_80.png" />
+    <Content Include="Images\Yellow_M_90.png" />
+    <Content Include="Images\Yellow_S.png" />
+    <Content Include="Images\Yellow_S_0.png" />
+    <Content Include="Images\Yellow_S_10.png" />
+    <Content Include="Images\Yellow_S_100.png" />
+    <Content Include="Images\Yellow_S_110.png" />
+    <Content Include="Images\Yellow_S_120.png" />
+    <Content Include="Images\Yellow_S_130.png" />
+    <Content Include="Images\Yellow_S_140.png" />
+    <Content Include="Images\Yellow_S_150.png" />
+    <Content Include="Images\Yellow_S_160.png" />
+    <Content Include="Images\Yellow_S_170.png" />
+    <Content Include="Images\Yellow_S_180.png" />
+    <Content Include="Images\Yellow_S_190.png" />
+    <Content Include="Images\Yellow_S_20.png" />
+    <Content Include="Images\Yellow_S_200.png" />
+    <Content Include="Images\Yellow_S_210.png" />
+    <Content Include="Images\Yellow_S_220.png" />
+    <Content Include="Images\Yellow_S_230.png" />
+    <Content Include="Images\Yellow_S_240.png" />
+    <Content Include="Images\Yellow_S_250.png" />
+    <Content Include="Images\Yellow_S_260.png" />
+    <Content Include="Images\Yellow_S_270.png" />
+    <Content Include="Images\Yellow_S_280.png" />
+    <Content Include="Images\Yellow_S_290.png" />
+    <Content Include="Images\Yellow_S_30.png" />
+    <Content Include="Images\Yellow_S_300.png" />
+    <Content Include="Images\Yellow_S_310.png" />
+    <Content Include="Images\Yellow_S_320.png" />
+    <Content Include="Images\Yellow_S_330.png" />
+    <Content Include="Images\Yellow_S_340.png" />
+    <Content Include="Images\Yellow_S_350.png" />
+    <Content Include="Images\Yellow_S_40.png" />
+    <Content Include="Images\Yellow_S_50.png" />
+    <Content Include="Images\Yellow_S_60.png" />
+    <Content Include="Images\Yellow_S_70.png" />
+    <Content Include="Images\Yellow_S_80.png" />
+    <Content Include="Images\Yellow_S_90.png" />
+    <Content Include="Images\Yellow_T.png" />
+    <Content Include="Images\Yellow_T_0.png" />
+    <Content Include="Images\Yellow_T_10.png" />
+    <Content Include="Images\Yellow_T_100.png" />
+    <Content Include="Images\Yellow_T_110.png" />
+    <Content Include="Images\Yellow_T_120.png" />
+    <Content Include="Images\Yellow_T_130.png" />
+    <Content Include="Images\Yellow_T_140.png" />
+    <Content Include="Images\Yellow_T_150.png" />
+    <Content Include="Images\Yellow_T_160.png" />
+    <Content Include="Images\Yellow_T_170.png" />
+    <Content Include="Images\Yellow_T_180.png" />
+    <Content Include="Images\Yellow_T_190.png" />
+    <Content Include="Images\Yellow_T_20.png" />
+    <Content Include="Images\Yellow_T_200.png" />
+    <Content Include="Images\Yellow_T_210.png" />
+    <Content Include="Images\Yellow_T_220.png" />
+    <Content Include="Images\Yellow_T_230.png" />
+    <Content Include="Images\Yellow_T_240.png" />
+    <Content Include="Images\Yellow_T_250.png" />
+    <Content Include="Images\Yellow_T_260.png" />
+    <Content Include="Images\Yellow_T_270.png" />
+    <Content Include="Images\Yellow_T_280.png" />
+    <Content Include="Images\Yellow_T_290.png" />
+    <Content Include="Images\Yellow_T_30.png" />
+    <Content Include="Images\Yellow_T_300.png" />
+    <Content Include="Images\Yellow_T_310.png" />
+    <Content Include="Images\Yellow_T_320.png" />
+    <Content Include="Images\Yellow_T_330.png" />
+    <Content Include="Images\Yellow_T_340.png" />
+    <Content Include="Images\Yellow_T_350.png" />
+    <Content Include="Images\Yellow_T_40.png" />
+    <Content Include="Images\Yellow_T_50.png" />
+    <Content Include="Images\Yellow_T_60.png" />
+    <Content Include="Images\Yellow_T_70.png" />
+    <Content Include="Images\Yellow_T_80.png" />
+    <Content Include="Images\Yellow_T_90.png" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Key1.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties StartAt="635831424000000000" Versioning="1" IncrementAction="0" IncrementOnBuild="True" IncrementOnRebuild="True" IncrementInformational="False" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

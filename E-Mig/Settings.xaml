@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="E_Mig.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:E_Mig"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.BottomAppBar>
+        <CommandBar ClosedDisplayMode="Minimal">
+            <CommandBar.Content>
+                <Grid>
+                    <!--<TextBlock Text="AAAAABBB" />-->
+                </Grid>
+            </CommandBar.Content>
+            <CommandBar.SecondaryCommands>
+                <!--<AppBarButton x:Name="command_settings" Icon="Setting" Label="Settings"/>-->
+            </CommandBar.SecondaryCommands>
+            <CommandBar.PrimaryCommands>
+                <!--<AppBarButton Icon="Accept" Label="appbarbutton"/>
+                <AppBarButton Icon="Cancel" Label="appbarbutton"/>-->
+            </CommandBar.PrimaryCommands>
+
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <SplitView x:Name="settings_SplitView" Margin="0,40,0,0" OpenPaneLength="200">
+            <SplitView.Pane>
+                <Grid>
+                    <Button x:Name="menu_train" Content="Vonatinformáció" HorizontalAlignment="Stretch" Height="40" Margin="10,50,10,0" VerticalAlignment="Top" FontSize="18" HorizontalContentAlignment="Left" Background="Transparent" Tapped="menu_train_Tapped"/>
+                    <Button x:Name="menu_station" Content="Állomásinformáció" HorizontalAlignment="Stretch" Height="40" Margin="10,90,10,0" VerticalAlignment="Top" FontSize="18" HorizontalContentAlignment="Left" Background="Transparent" Tapped="menu_station_Tapped"/>
+                    <Button x:Name="menu_map" Content="Térkép" HorizontalAlignment="Stretch" Height="40" Margin="10,10,10,0" VerticalAlignment="Top" FontSize="18" HorizontalContentAlignment="Left" Background="Transparent" Tapped="menu_map_Tapped"/>
+                </Grid>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <ToggleSwitch x:Name="updateSwitch" Header="Térkép automatikus frissítése" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,44,0,0" IsOn="True" FontSize="13.333" Width="170"/>
+                    <ComboBox x:Name="cbUpdateInterval" HorizontalAlignment="Left" Height="30" Margin="10,134,0,0" VerticalAlignment="Top" Width="130" FontSize="13.333">
+                        <ComboBoxItem Content="10 másodperc" IsSelected="True"/>
+                        <ComboBoxItem Content="20 másodperc"/>
+                        <ComboBoxItem Content="30 másodperc" IsSelected="True"/>
+                        <ComboBoxItem Content="60 másodperc"/>
+                    </ComboBox>
+                    <TextBlock x:Name="tbUpdateIntervalTitle" HorizontalAlignment="Left" Height="20" Margin="10,102,0,0" TextWrapping="Wrap" Text="Frissítési gyakoriság" VerticalAlignment="Top" Width="191"  FontSize="13.333"/>
+                    <TextBlock x:Name="tbUpdateTitle" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="Térkép frissítése" VerticalAlignment="Top" Width="230"  FontSize="18.667" Margin="10,8,0,0"/>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
+        <Button x:Name="btnMenuToggle" Content="&#xE700;" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" FontFamily="Segoe MDL2 Assets" Tapped="btnMenuToggle_Tapped" Background="#22FFFFFF"/>
+        <TextBlock x:Name="tbMainTitle" HorizontalAlignment="Left" Margin="50,0,0,0" TextWrapping="Wrap" Text="E-MIG" VerticalAlignment="Top" Height="41" Padding="0,5,0,0" FontSize="22" FontWeight="Bold"/>
+        <TextBlock x:Name="tbPageTitle" HorizontalAlignment="Left" Margin="137,0,0,0" TextWrapping="Wrap" Text="Térkép" VerticalAlignment="Top" Height="41" Padding="0,5,0,0" FontSize="22"/>
+    </Grid>
+</Page>
+    
