@@ -7,41 +7,19 @@
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     x:Class="E_Mig.MainPage"
     mc:Ignorable="d">
-    <Page.BottomAppBar>
-        <CommandBar ClosedDisplayMode="Minimal">
-            <CommandBar.Content>
-                <Grid>
-                    <!--<TextBlock Text="AAAAABBB" />-->
-                </Grid>
-            </CommandBar.Content>
-            <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="command_settings" Icon="Setting" Label="Settings" Tapped="command_settings_Tapped"/>
-            </CommandBar.SecondaryCommands>
-            <CommandBar.PrimaryCommands>
-                <!--<AppBarButton Icon="Accept" Label="appbarbutton"/>
-                <AppBarButton Icon="Cancel" Label="appbarbutton"/>-->
-            </CommandBar.PrimaryCommands>
+   
 
-        </CommandBar>
-    </Page.BottomAppBar>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <SplitView x:Name="mainPage_SplitView" Margin="0,40,0,0" OpenPaneLength="200">
-            <SplitView.Pane>
-                <Grid>
-                    <Button x:Name="menu_train" Content="Vonatinformáció" HorizontalAlignment="Stretch" Height="40" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="18" HorizontalContentAlignment="Left" Background="Transparent"/>
-                    <Button x:Name="menu_station" Content="Állomásinformáció" HorizontalAlignment="Stretch" Height="40" Margin="0,90,0,0" VerticalAlignment="Top" FontSize="18" HorizontalContentAlignment="Left" Background="Transparent" Click="menu_station_Click"/>
-                    <Button x:Name="menu_map" Content="Térkép" HorizontalAlignment="Stretch" Height="40" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="18" HorizontalContentAlignment="Left" Background="Transparent"/>
-                    <Button x:Name="menu_settings" Content="Settings" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" Background="Transparent" Height="40" Tapped="menu_settings_Tapped"/>
-                </Grid>
-            </SplitView.Pane>
+            
             <SplitView.Content>
                 <Grid>
                     <Maps:MapControl x:Name="map" Margin="0" MapServiceToken="ZLFq0PL1O88aM2ZiA80E~KaRjO_9tH84oys6LItWsmQ~AmT2djlPLBBzE8EB_8InEZtgYCXr1szFYf9N6lJfKWLMkA5jwLeatlMFJvQiUDGX" >
                         <Maps:MapItemsControl ItemsSource="{Binding Vonatok.Result}" x:Name="mapItems">
                             <Maps:MapItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Image Source="{Binding IconSource}" Height="20" Tag="{Binding Index}"
+                                    <Image Source="{Binding IconSource}" Height="40" Tag="{Binding Index}"
                                        Maps:MapControl.Location="{Binding Location}"
                                        Maps:MapControl.NormalizedAnchorPoint="{Binding Anchor}"
                                        Tapped="Image_Tapped">
@@ -50,25 +28,25 @@
                             </Maps:MapItemsControl.ItemTemplate>
                         </Maps:MapItemsControl>
                     </Maps:MapControl>
-                    <Button x:Name="btnMapZoomIn" Content="&#xE710;" Height="36" Width="36" Margin="0,0,10,72" Background="#99000000" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0" FontFamily="Segoe MDL2 Assets" Tapped="btnMapZoomIn_Tapped"/>
-                    <Button x:Name="btnMapZoomOut" Content="&#xE738;" Width="36" Margin="0,0,10,25" Background="#99000000" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0" FontFamily="Segoe MDL2 Assets" Click="btnMapZoomOut_Click" Tapped="btnMapZoomOut_Tapped" Height="36"/>
+                    <Button x:Name="btnMapZoomIn" Content="&#xE710;" Height="36" Width="36" Margin="0,0,10,62" Background="#99000000" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0" FontFamily="Segoe MDL2 Assets" Tapped="btnMapZoomIn_Tapped"/>
+                    <Button x:Name="btnMapZoomOut" Content="&#xE738;" Width="36" Margin="0,0,10,15" Background="#99000000" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0" FontFamily="Segoe MDL2 Assets" Click="btnMapZoomOut_Click" Tapped="btnMapZoomOut_Tapped" Height="36"/>
                     <Button x:Name="btnMapSearch" Content="&#59166;" Width="36" Margin="0,10,10,0" Background="#99000000" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="0" FontFamily="Segoe MDL2 Assets" Height="36">
                         <Button.Flyout>
                             <Flyout>
                                 <Grid Height="203" Width="129">
-                                    <Button x:Name="btnSearch" Content="Query" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="64" Height="30" Margin="0" Click="btnSearch_Click"/>
-                                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="-2,-2,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" FontSize="18" FontWeight="Medium"/>
-                                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="0,28,0,0" TextWrapping="Wrap" Text="Search type:" VerticalAlignment="Top"/>
-                                    <ComboBox x:Name="cbQueryType" HorizontalAlignment="Stretch" Margin="0,56,0,0" VerticalAlignment="Top" SelectionChanged="comboBox_SelectionChanged" SelectedIndex="0">
+                                    <Button x:Name="btnSearch" Content="Keresés" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="70" Height="30" Margin="0" Click="btnSearch_Click"/>
+                                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="-2,-2,0,0" TextWrapping="Wrap" Text="Keresés" VerticalAlignment="Top" FontSize="18" FontWeight="Medium"/>
+                                    
+                                    <ComboBox x:Name="cbQueryType" HorizontalAlignment="Stretch" Margin="0,30,0,0" VerticalAlignment="Top" SelectionChanged="comboBox_SelectionChanged" SelectedIndex="0">
                                         <ComboBox.Items>
+                                            <ComboBoxItem>Pályaszám</ComboBoxItem>
                                             <ComboBoxItem>UIC</ComboBoxItem>
-                                            <ComboBoxItem>Loc. No.</ComboBoxItem>
-                                            <ComboBoxItem>Train ID</ComboBoxItem>
-                                            <ComboBoxItem>Location</ComboBoxItem>
+                                            <ComboBoxItem>Vonatszám</ComboBoxItem>
+                                            
                                         </ComboBox.Items>
                                     </ComboBox>
-                                    <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="0,95,0,0" TextWrapping="Wrap" Text="Value:" VerticalAlignment="Top"/>
-                                    <TextBox x:Name="textBox" Margin="0,118,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+                                    
+                                    <TextBox x:Name="textBox" Margin="0,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
                                 </Grid>
                             </Flyout>
@@ -80,8 +58,7 @@
                 </Grid>
             </SplitView.Content>
         </SplitView>
-        <Button x:Name="btnMenuToggle" Content="&#xE700;" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" FontFamily="Segoe MDL2 Assets" Click="btnMenuToggle_Click" Tapped="btnMenuToggle_Tapped" Background="#22FFFFFF"/>
-        <TextBlock x:Name="tbMainTitle" HorizontalAlignment="Left" Margin="50,0,0,0" TextWrapping="Wrap" Text="E-MIG" VerticalAlignment="Top" Height="41" Padding="0,5,0,0" FontSize="22" FontWeight="Bold"/>
-        <TextBlock x:Name="tbPageTitle" HorizontalAlignment="Left" Margin="137,0,0,0" TextWrapping="Wrap" Text="Térkép" VerticalAlignment="Top" Height="41" Padding="0,5,0,0" FontSize="22"/>
+        
+        <TextBlock x:Name="tbMainTitle" HorizontalAlignment="Left" TextWrapping="Wrap" Text="E-MIG" VerticalAlignment="Top" Height="41" Padding="0,5,0,0" FontSize="22" FontWeight="Bold" Margin="10,0,0,0"/>
     </Grid>
 </Page>

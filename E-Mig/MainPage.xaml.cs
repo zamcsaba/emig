@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Core;
+using System.Threading;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -27,12 +28,16 @@ namespace E_Mig
     public sealed partial class MainPage : Page
     {
         MainViewModel wm;
+        //DispatcherTimer tm = new DispatcherTimer();
 
         public MainPage()
         {
+            //tm.Interval = new TimeSpan(300000);
             this.InitializeComponent();
             this.InitializeLayout();
             this.InitializeEvents();
+
+            //tm.Start();
         }
         void InitializeLayout()
         {
@@ -42,6 +47,13 @@ namespace E_Mig
         void InitializeEvents()
         {
             this.Loaded += MainPage_Loaded;
+
+            //tm.Tick += Tm_Tick;
+        }
+
+        private async void Tm_Tick(object sender, object e)
+        {
+            btnRefresh_Tapped(null, new TappedRoutedEventArgs());
         }
 
         async Task VonatBetoltes()
@@ -135,7 +147,7 @@ namespace E_Mig
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -293,3 +305,4 @@ namespace E_Mig
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }
+
