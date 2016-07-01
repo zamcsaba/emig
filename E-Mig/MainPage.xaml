@@ -7,25 +7,9 @@
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     x:Class="E_Mig.MainPage"
     mc:Ignorable="d">
-    <Page.BottomAppBar>
-        <CommandBar ClosedDisplayMode="Minimal">
-            <CommandBar.Content>
-                <Grid>
-                    <!--<TextBlock Text="AAAAABBB" />-->
-                </Grid>
-            </CommandBar.Content>
-            <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="command_settings" Icon="Setting" Label="Settings" Tapped="command_settings_Tapped"/>
-            </CommandBar.SecondaryCommands>
-            <CommandBar.PrimaryCommands>
-                <!--<AppBarButton Icon="Accept" Label="appbarbutton"/>
-                <AppBarButton Icon="Cancel" Label="appbarbutton"/>-->
-            </CommandBar.PrimaryCommands>
+    
 
-        </CommandBar>
-    </Page.BottomAppBar>
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ComboBoxItemPressedBackgroundThemeBrush}">
         <SplitView x:Name="mainPage_SplitView" Margin="0,40,0,0" OpenPaneLength="200">
             <SplitView.Pane>
                 <Grid>
@@ -41,7 +25,7 @@
                         <Maps:MapItemsControl ItemsSource="{Binding Vonatok.Result}" x:Name="mapItems">
                             <Maps:MapItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Image Source="{Binding IconSource}" Height="20" Tag="{Binding Index}"
+                                    <Image Source="{Binding IconSource}" Height="35" Tag="{Binding Index}"
                                        Maps:MapControl.Location="{Binding Location}"
                                        Maps:MapControl.NormalizedAnchorPoint="{Binding Anchor}"
                                        Tapped="Image_Tapped">
@@ -80,8 +64,8 @@
                 </Grid>
             </SplitView.Content>
         </SplitView>
-        <Button x:Name="btnMenuToggle" Content="&#xE700;" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" FontFamily="Segoe MDL2 Assets" Click="btnMenuToggle_Click" Tapped="btnMenuToggle_Tapped" Background="#22FFFFFF"/>
-        <TextBlock x:Name="tbMainTitle" HorizontalAlignment="Left" Margin="50,0,0,0" TextWrapping="Wrap" Text="E-MIG" VerticalAlignment="Top" Height="41" Padding="0,5,0,0" FontSize="22" FontWeight="Bold"/>
-        <TextBlock x:Name="tbPageTitle" HorizontalAlignment="Left" Margin="137,0,0,0" TextWrapping="Wrap" Text="Térkép" VerticalAlignment="Top" Height="41" Padding="0,5,0,0" FontSize="22"/>
+        
+        <TextBlock x:Name="tbMainTitle" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="E-MIG" VerticalAlignment="Top" Height="41" Padding="0,5,0,0" FontSize="22" FontWeight="Bold" Foreground="Black"/>
+        
     </Grid>
 </Page>
