@@ -8,6 +8,68 @@ using Windows.UI.Xaml.Media;
 
 namespace E_Mig
 {
+    public class VonatDetails
+    {
+        private int _sebesseg;
+
+        public int Sebesseg
+        {
+            get { return Sebesseg; }
+            set { Sebesseg = value; }
+        }
+
+        private int _uic;
+
+        public int Uic
+        {
+            get { return Uic; }
+            set { Uic = value; }
+        }
+
+        private int _kiinduloallomas;
+
+        public int KiinduloAllomas
+        {
+            get { return KiinduloAllomas; }
+            set { KiinduloAllomas = value; }
+        }
+
+        private int _celallomas;
+
+        public int Celallomas
+        {
+            get { return Celallomas; }
+            set { Celallomas = value; }
+        }
+
+        private int _vonatszam;
+
+        public int Vonatszam
+        {
+            get { return Vonatszam; }
+            set { Vonatszam = value; }
+        }
+
+        public VonatDetails()
+        {
+            
+        }
+
+        private Dictionary<string, string[]> _menetrend = new Dictionary<string, string[]>
+        {
+
+        };
+        public  Dictionary<string, string[]> Menetrend = new Dictionary<string, string[]>
+        {
+
+        };
+
+
+
+
+
+    }
+
     public class Vonat
     {
         #region Fields
@@ -257,18 +319,7 @@ namespace E_Mig
         }
     }
 
-    private string _sebesseg;
-    public string Sebesseg
-    {
-        get
-        {
-            return _sebesseg;
-        }
-        set
-        {
-            _sebesseg = value;
-        }
-    }
+   
 
 
     public enum MozdonyTipus

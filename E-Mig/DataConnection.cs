@@ -11,6 +11,9 @@ using Windows.Networking.Connectivity;
 
 namespace E_Mig
 {
+
+    
+
     public class DataConnection
     {
         public static List<Vonat> vonatLista = new List<Vonat>();
@@ -18,8 +21,29 @@ namespace E_Mig
         static string sessionId;
         static string sqlId;
 
-        public static async Task<string> getSessionId()
+        public static async Task<string> getDetails(string uic, string vsz)
         {
+            VonatDetails vd = new VonatDetails();
+
+            HttpClient client = new HttpClient();
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "http://iemig.mav-trakcio.hu/netr/emig.aspx?u=public&s=" + sessionId + "&t=publicrpls&si=public_get_data&par=" + uic + (!String.IsNullOrEmpty(vsz) ? ("|" + vsz) : ""));
+            request.Headers.Date = DateTime.Now.Subtract(new TimeSpan(10, 0, 0));
+            request.Headers.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 6.1; WOW64; rv:11.0) Gecko/20100101 Firefox/11.0");
+            HttpResponseMessage response = await client.SendAsync(request);
+            string s = await response.Content.ReadAsStringAsync();
+
+            //MEG KÉNE NÉZNI
+
+            //BLAH
+
+            return s;
+
+        }
+
+        public static async Task<string> getSessionId()
+
+        {
+
             HttpClient client = new HttpClient();
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "http://iemig.mav-trakcio.hu/netr/emig.aspx/");
             request.Headers.Date = DateTime.Now.Subtract(new TimeSpan(10, 0, 0));
@@ -180,5 +204,10 @@ namespace E_Mig
             vonatokHtml = null;
             return vonatLista;
         }
+        
+
+
     }
+
+
 }
