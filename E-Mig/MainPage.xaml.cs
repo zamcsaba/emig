@@ -96,7 +96,7 @@ namespace E_Mig
             int index = Convert.ToInt32(img.Tag);
             ContentDialog dlg = new ContentDialog();
             dlg.Title = wm.Vonatok.Result[index].Palyaszam;
-            dlg.Content = String.Format("UIC: {0}\nVonatszám: {1}", new object[] { wm.Vonatok.Result[index].UIC.ToString(), wm.Vonatok.Result[index].Vonatszam.ToString() });
+            dlg.Content = String.Format("\nVonatszám:\t {1}\nInduló állomás:\t {2}\nÉrkező állomás:\t {3}\nUIC:\t\t {0}", new object[] { wm.Vonatok.Result[index].UIC.ToString(), wm.Vonatok.Result[index].Vonatszam.ToString(), wm.Vonatok.Result[index].KiinduloAllomas.ToString(), wm.Vonatok.Result[index].Celallomas.ToString() });
             dlg.IsPrimaryButtonEnabled = true;
             dlg.PrimaryButtonText = "OK";
             dlg.PrimaryButtonClick += Dlg_PrimaryButtonClick;

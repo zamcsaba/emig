@@ -257,6 +257,20 @@ namespace E_Mig
         }
     }
 
+    private string _sebesseg;
+    public string Sebesseg
+    {
+        get
+        {
+            return _sebesseg;
+        }
+        set
+        {
+            _sebesseg = value;
+        }
+    }
+
+
     public enum MozdonyTipus
     {
         Dizel,
@@ -269,4 +283,5 @@ namespace E_Mig
         ElektromosEgyeb,
         FlirtTalent
     }
+
 }

@@ -9,7 +9,13 @@
     mc:Ignorable="d">
     
 
-    <Grid Background="{ThemeResource ComboBoxItemPressedBackgroundThemeBrush}">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <SplitView x:Name="mainPage_SplitView" Margin="0,40,0,0" OpenPaneLength="200">
             <SplitView.Pane>
                 <Grid>
@@ -65,7 +71,7 @@
             </SplitView.Content>
         </SplitView>
         
-        <TextBlock x:Name="tbMainTitle" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="E-MIG" VerticalAlignment="Top" Height="41" Padding="0,5,0,0" FontSize="22" FontWeight="Bold" Foreground="Black"/>
+        <TextBlock x:Name="tbMainTitle" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="E-MIG" VerticalAlignment="Top" Height="41" Padding="0,5,0,0" FontSize="22" FontWeight="Bold" Foreground="White"/>
         
     </Grid>
 </Page>
