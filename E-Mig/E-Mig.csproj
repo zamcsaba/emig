@@ -358,6 +358,7 @@
     <Content Include="Images\Blue_T_70.png" />
     <Content Include="Images\Blue_T_80.png" />
     <Content Include="Images\Blue_T_90.png" />
+    <Content Include="Images\Blue_T_a.png" />
     <Content Include="Images\Green_M.png" />
     <Content Include="Images\Green_M_0.png" />
     <Content Include="Images\Green_M_10.png" />
@@ -395,6 +396,7 @@
     <Content Include="Images\Green_M_70.png" />
     <Content Include="Images\Green_M_80.png" />
     <Content Include="Images\Green_M_90.png" />
+    <Content Include="Images\Green_M_a.png" />
     <Content Include="Images\Green_S.png" />
     <Content Include="Images\Green_S_0.png" />
     <Content Include="Images\Green_S_10.png" />
@@ -470,6 +472,7 @@
     <Content Include="Images\Green_T_70.png" />
     <Content Include="Images\Green_T_80.png" />
     <Content Include="Images\Green_T_90.png" />
+    <Content Include="Images\Green_T_a.png" />
     <Content Include="Images\Grey_M.png" />
     <Content Include="Images\Grey_M_0.png" />
     <Content Include="Images\Grey_M_10.png" />
@@ -507,6 +510,7 @@
     <Content Include="Images\Grey_M_70.png" />
     <Content Include="Images\Grey_M_80.png" />
     <Content Include="Images\Grey_M_90.png" />
+    <Content Include="Images\Grey_M_a.png" />
     <Content Include="Images\Grey_S.png" />
     <Content Include="Images\Grey_S_0.png" />
     <Content Include="Images\Grey_S_10.png" />
@@ -582,6 +586,7 @@
     <Content Include="Images\Grey_T_70.png" />
     <Content Include="Images\Grey_T_80.png" />
     <Content Include="Images\Grey_T_90.png" />
+    <Content Include="Images\Grey_T_a.png" />
     <Content Include="Images\Orange_M.png" />
     <Content Include="Images\Orange_M_0.png" />
     <Content Include="Images\Orange_M_10.png" />
@@ -657,6 +662,7 @@
     <Content Include="Images\Orange_S_70.png" />
     <Content Include="Images\Orange_S_80.png" />
     <Content Include="Images\Orange_S_90.png" />
+    <Content Include="Images\Orange_S_a.png" />
     <Content Include="Images\Orange_T.png" />
     <Content Include="Images\Orange_T_0.png" />
     <Content Include="Images\Orange_T_10.png" />
@@ -694,6 +700,7 @@
     <Content Include="Images\Orange_T_70.png" />
     <Content Include="Images\Orange_T_80.png" />
     <Content Include="Images\Orange_T_90.png" />
+    <Content Include="Images\Orange_T_a.png" />
     <Content Include="Images\Red_M.png" />
     <Content Include="Images\Red_M_0.png" />
     <Content Include="Images\Red_M_10.png" />
@@ -731,6 +738,7 @@
     <Content Include="Images\Red_M_70.png" />
     <Content Include="Images\Red_M_80.png" />
     <Content Include="Images\Red_M_90.png" />
+    <Content Include="Images\Red_M_a.png" />
     <Content Include="Images\Red_S.png" />
     <Content Include="Images\Red_S_0.png" />
     <Content Include="Images\Red_S_10.png" />
@@ -806,6 +814,7 @@
     <Content Include="Images\Red_T_70.png" />
     <Content Include="Images\Red_T_80.png" />
     <Content Include="Images\Red_T_90.png" />
+    <Content Include="Images\Red_T_a.png" />
     <Content Include="Images\Yellow_M.png" />
     <Content Include="Images\Yellow_M_0.png" />
     <Content Include="Images\Yellow_M_10.png" />
@@ -843,6 +852,7 @@
     <Content Include="Images\Yellow_M_70.png" />
     <Content Include="Images\Yellow_M_80.png" />
     <Content Include="Images\Yellow_M_90.png" />
+    <Content Include="Images\Yellow_M_a.png" />
     <Content Include="Images\Yellow_S.png" />
     <Content Include="Images\Yellow_S_0.png" />
     <Content Include="Images\Yellow_S_10.png" />
@@ -880,6 +890,7 @@
     <Content Include="Images\Yellow_S_70.png" />
     <Content Include="Images\Yellow_S_80.png" />
     <Content Include="Images\Yellow_S_90.png" />
+    <Content Include="Images\Yellow_S_a.png" />
     <Content Include="Images\Yellow_T.png" />
     <Content Include="Images\Yellow_T_0.png" />
     <Content Include="Images\Yellow_T_10.png" />
@@ -953,7 +964,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties IncrementInformational="False" IncrementOnRebuild="True" IncrementOnBuild="True" IncrementAction="0" Versioning="1" StartAt="635831424000000000" />
+      <UserProperties StartAt="635831424000000000" Versioning="1" IncrementAction="0" IncrementOnBuild="True" IncrementOnRebuild="True" IncrementInformational="False" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -31,7 +31,7 @@
                         <Maps:MapItemsControl ItemsSource="{Binding Vonatok.Result}" x:Name="mapItems">
                             <Maps:MapItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Image Source="{Binding IconSource}" Height="35" Tag="{Binding Index}"
+                                    <Image Source="{Binding IconSource}" Height="30" Tag="{Binding Index}"
                                        Maps:MapControl.Location="{Binding Location}"
                                        Maps:MapControl.NormalizedAnchorPoint="{Binding Anchor}"
                                        Tapped="Image_Tapped">
