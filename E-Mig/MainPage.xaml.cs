@@ -93,21 +93,21 @@ namespace E_Mig
 
        
 
-        private void Image_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void Image_Tapped(object sender, TappedRoutedEventArgs e)
         {
             
 
             Image img = (Image)sender;
             int index = Convert.ToInt32(img.Tag);
             ContentDialog dlg = new ContentDialog();
-            DataConnection.getDetails(wm.Vonatok.Result[index].UIC, wm.Vonatok.Result[index].Vonatszam);
+            var det = await DataConnection.getDetails(wm.Vonatok.Result[index].UIC, wm.Vonatok.Result[index].Vonatszam);
 
             dlg.Title = wm.Vonatok.Result[index].Palyaszam;
-            dlg.Content = String.Format("\nVonatszám:\t {1}\nInduló állomás:\t {2}\nÉrkező állomás:\t {3}\nUIC:\t\t {0}", new object[] { wm.Vonatok.Result[index].UIC.ToString(), wm.Vonatok.Result[index].Vonatszam.ToString(), wm.Vonatok.Result[index].KiinduloAllomas.ToString(), wm.Vonatok.Result[index].Celallomas.ToString() });
+            dlg.Content = String.Format("\nVonatszám:\t {1}\nInduló állomás:\t {2}\nÉrkező állomás:\t {3}\nSebesség:\t {4}\nUIC:\t\t {0}", new object[] { wm.Vonatok.Result[index].UIC.ToString(), wm.Vonatok.Result[index].Vonatszam.ToString(), wm.Vonatok.Result[index].KiinduloAllomas.ToString(), wm.Vonatok.Result[index].Celallomas.ToString(), det.Sebesseg });
             dlg.IsPrimaryButtonEnabled = true;
             dlg.PrimaryButtonText = "OK";
             dlg.PrimaryButtonClick += Dlg_PrimaryButtonClick;
-            dlg.ShowAsync();
+            await dlg.ShowAsync();
         }
         private void Dlg_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {

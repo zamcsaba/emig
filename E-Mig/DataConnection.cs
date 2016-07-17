@@ -21,7 +21,7 @@ namespace E_Mig
         static string sessionId;
         static string sqlId;
 
-        public static async Task<string> getDetails(string uic, string vsz)
+        public static async Task<VonatDetails> getDetails(string uic, string vsz)
         {
             VonatDetails vd = new VonatDetails();
 
@@ -34,9 +34,15 @@ namespace E_Mig
 
             //MEG KÉNE NÉZNI
 
+            Match m = new Regex("<cell class=\"form_cell\">Pillanatnyi sebesség:</cell><cell type=\"ro\">(.*?)</cell>").Match(s);
+            string vseb = m.Groups[1].ToString();
+
+            vd.Sebesseg = vseb;
+
             //BLAH
 
-            return s;
+
+            return vd;
 
         }
 

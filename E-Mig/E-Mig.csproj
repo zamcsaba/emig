@@ -282,6 +282,7 @@
     <Content Include="Images\Blue_M_70.png" />
     <Content Include="Images\Blue_M_80.png" />
     <Content Include="Images\Blue_M_90.png" />
+    <Content Include="Images\Blue_M_a.png" />
     <Content Include="Images\Blue_S.png" />
     <Content Include="Images\Blue_S_0.png" />
     <Content Include="Images\Blue_S_10.png" />
@@ -319,6 +320,7 @@
     <Content Include="Images\Blue_S_70.png" />
     <Content Include="Images\Blue_S_80.png" />
     <Content Include="Images\Blue_S_90.png" />
+    <Content Include="Images\Blue_S_a.png" />
     <Content Include="Images\Blue_T.png" />
     <Content Include="Images\Blue_T_0.png" />
     <Content Include="Images\Blue_T_10.png" />
@@ -430,6 +432,7 @@
     <Content Include="Images\Green_S_70.png" />
     <Content Include="Images\Green_S_80.png" />
     <Content Include="Images\Green_S_90.png" />
+    <Content Include="Images\Green_S_a.png" />
     <Content Include="Images\Green_T.png" />
     <Content Include="Images\Green_T_0.png" />
     <Content Include="Images\Green_T_10.png" />
@@ -541,6 +544,7 @@
     <Content Include="Images\Grey_S_70.png" />
     <Content Include="Images\Grey_S_80.png" />
     <Content Include="Images\Grey_S_90.png" />
+    <Content Include="Images\Grey_S_a.png" />
     <Content Include="Images\Grey_T.png" />
     <Content Include="Images\Grey_T_0.png" />
     <Content Include="Images\Grey_T_10.png" />
@@ -615,6 +619,7 @@
     <Content Include="Images\Orange_M_70.png" />
     <Content Include="Images\Orange_M_80.png" />
     <Content Include="Images\Orange_M_90.png" />
+    <Content Include="Images\Orange_M_a.png" />
     <Content Include="Images\Orange_S.png" />
     <Content Include="Images\Orange_S_0.png" />
     <Content Include="Images\Orange_S_10.png" />
@@ -763,6 +768,7 @@
     <Content Include="Images\Red_S_70.png" />
     <Content Include="Images\Red_S_80.png" />
     <Content Include="Images\Red_S_90.png" />
+    <Content Include="Images\Red_S_a.png" />
     <Content Include="Images\Red_T.png" />
     <Content Include="Images\Red_T_0.png" />
     <Content Include="Images\Red_T_10.png" />
@@ -911,6 +917,7 @@
     <Content Include="Images\Yellow_T_70.png" />
     <Content Include="Images\Yellow_T_80.png" />
     <Content Include="Images\Yellow_T_90.png" />
+    <Content Include="Images\Yellow_T_a.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -946,7 +953,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties StartAt="635831424000000000" Versioning="1" IncrementAction="0" IncrementOnBuild="True" IncrementOnRebuild="True" IncrementInformational="False" />
+      <UserProperties IncrementInformational="False" IncrementOnRebuild="True" IncrementOnBuild="True" IncrementAction="0" Versioning="1" StartAt="635831424000000000" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

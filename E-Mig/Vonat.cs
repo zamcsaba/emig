@@ -10,66 +10,55 @@ namespace E_Mig
 {
     public class VonatDetails
     {
-        private int _sebesseg;
+        private string _sebesseg;
 
-        public int Sebesseg
+        public string Sebesseg
         {
-            get { return Sebesseg; }
-            set { Sebesseg = value; }
+            get { return _sebesseg; }
+            set { _sebesseg = value; }
         }
 
-        private int _uic;
+        public string uic;
 
-        public int Uic
+
+        private string _kiinduloAllomas;
+
+        public string KiinduloAllomas
         {
-            get { return Uic; }
-            set { Uic = value; }
+            get { return _kiinduloAllomas; }
+            set { _kiinduloAllomas = value; }
         }
 
-        private int _kiinduloallomas;
+        private string _celallomas;
 
-        public int KiinduloAllomas
+        public string Celallomas
         {
-            get { return KiinduloAllomas; }
-            set { KiinduloAllomas = value; }
+            get { return _celallomas; }
+            set { _celallomas = value; }
         }
 
-        private int _celallomas;
+        private string _vonatszam;
 
-        public int Celallomas
+        public string Vonatszam
         {
-            get { return Celallomas; }
-            set { Celallomas = value; }
-        }
-
-        private int _vonatszam;
-
-        public int Vonatszam
-        {
-            get { return Vonatszam; }
-            set { Vonatszam = value; }
+            get { return _vonatszam; }
+            set { _vonatszam = value; }
         }
 
         public VonatDetails()
         {
-            
+
         }
 
-        private Dictionary<string, string[]> _menetrend = new Dictionary<string, string[]>
+
+        private Dictionary<string, string[]> _menetrend = new Dictionary<string, string[]>();
+        public Dictionary<string, string[]> Menetrend
         {
-
-        };
-        public  Dictionary<string, string[]> Menetrend = new Dictionary<string, string[]>
-        {
-
-        };
-
-
-
-
+            get { return _menetrend; }
+            set { _menetrend = value; }
+        }
 
     }
-
     public class Vonat
     {
         #region Fields
@@ -201,7 +190,7 @@ namespace E_Mig
                     src += "Yellow" + "_" + _vonatTipus + "_" + getAngle().ToString() + ".png";
                     break;
                 default:
-                    return @"Images\BaseIcon_0.png";
+                    return @"Images\BaseIcon_a.png";
             }
             return src;
         }
@@ -220,7 +209,7 @@ namespace E_Mig
                 }
                 return s;
             }
-            else return "0";
+            else return "a";
         }
         MozdonyTipus getMT(string psz)
         {
@@ -303,11 +292,11 @@ namespace E_Mig
                 case "5342":
                     return MozdonyTipus.FlirtTalent;
 
-                
+
                 case "117": //bézé (0117)
                     return MozdonyTipus.DizelMotor;
-               
-                    
+
+
                 default:
                     return MozdonyTipus.ElektromosEgyeb;
             }
@@ -319,7 +308,7 @@ namespace E_Mig
         }
     }
 
-   
+
 
 
     public enum MozdonyTipus
@@ -334,5 +323,4 @@ namespace E_Mig
         ElektromosEgyeb,
         FlirtTalent
     }
-
 }
